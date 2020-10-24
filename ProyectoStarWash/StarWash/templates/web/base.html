@@ -14,31 +14,38 @@
 <body>
     <!-- CaBECERA -->
     <header class="header">
+
         <div class="container logo-nav-container">
             <div class="logo">
                 <a href="{% url 'INDEX' %}">
                     <img src="{% static 'img/logo/Logo.png' %}" alt="">
                 </a>
-            </div>
-            <span class="menu-icon"><img src="{% static 'img/logo/icono-menu.png' %}" alt="" ></span>
-            <nav class="navigation">
-                <ul class="">
-                    <li><a href="{% url 'INDEX' %}">Home</a></li>
-                    <li><a href="{% url 'CONOCENOS' %}">Conócenos</a></li>
-                    <li><a href="{% url 'UBICACION' %}">Ubicación</a></li>
-                    <li><a href="{% url 'GALERIA' %}">Galería</a></li>
-                    {% if user.is_authenticated %}
-                    {% comment %} <li><a href="{% url 'ADMIN_INSUMO' %}">CRUD Insumo</a></li> {% endcomment %}
-                    <li><a href="{% url 'INSUMOS' %}">Insumos</a></li>
-                    <li><a href="">Bienvenido {{user.first_name}} {{user.last_name}}</a></li>
-                    <li><a href="{% url 'LOGOUT' %}">Cerrar Sesión</a></li>
-                    {% else %}
-                    <li><a href="{% url 'FORMULARIO' %}">Registrar</a></li>
-                    <li><a href="{% url 'LOGIN' %}">Iniciar Sesión</a></li>
-                    {% endif%}
 
-                </ul>
-            </nav>
+            </div>
+            <div class="barraMenu">
+                <span class="menu-icon"><img src="{% static 'img/logo/icono-menu.png' %}" alt="" ></span>
+                <div class="bienvenidaUsuario">
+                    {% if user.is_authenticated %}
+                    <p> Bienvenido {{user.first_name}} {{user.last_name}}</p>
+                    {% endif%}
+                </div>
+                <nav class="navigation">
+                    <ul class="">
+                        <li><a href="{% url 'INDEX' %}">Inicio</a></li>
+                        <li><a href="{% url 'CONOCENOS' %}">Conócenos</a></li>
+                        <li><a href="{% url 'UBICACION' %}">Ubicación</a></li>
+                        <li><a href="{% url 'GALERIA' %}">Galería</a></li>
+                        {% if user.is_authenticated %} {% comment %}
+                        <li><a href="{% url 'ADMIN_INSUMO' %}">CRUD Insumo</a></li> {% endcomment %}
+                        <li><a href="{% url 'INSUMOS' %}">Insumos</a></li>
+                        <li><a href="{% url 'LOGOUT' %}">Cerrar Sesión</a></li>
+                        {% else %}
+                        <li><a href="{% url 'FORMULARIO' %}">Registrar</a></li>
+                        <li><a href="{% url 'LOGIN' %}">Iniciar Sesión</a></li>
+                        {% endif%}
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
     <!-- CONTENIDO  -->

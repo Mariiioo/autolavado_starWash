@@ -1,0 +1,36 @@
+{% extends "web/base.html" %} {% load static %} {% block contenido %}
+<div id="section">
+    <form action="" method="post" class="forma">
+        {% csrf_token %}
+        <h1>Login de Acceso</h1>
+        <!--table CREA LA SECCION PARA LA TABLA CON LOS CAMPOS REQUERIDOS-->
+        <table>
+            <h1 class="tituloFormulario">Ingresa tu cuenta</h1>
+
+            <h5>Tu Cuenta</h5>
+            <tr>
+                <!--DEBE TENER MINIMO 8 CARACTERES-->
+                <td>
+                    <p class="lbl"> NOMBRE USUARIO </p>
+                </td>
+                <td class="caja"><input type="text" id="txtNombreUsuario" name="NombreUsuario" class="field" required placeholder="Ej: Miggelito">
+                </td>
+            </tr>
+            <tr>
+                <!--DEBE TENER MINIMO 8 CARACTERES-->
+                <td>
+                    <p class="lbl"> CONTRASEÑA </p>
+                </td>
+                <td class="caja"><input type="password" id="txtPass" name="Pass" class="field" required></td>
+            </tr>
+
+        </table>
+        <div class="botones">
+            <input class="boton" type="submit" value="Aceder">
+        </div>
+    </form>
+    <div style="text-align: center; color: black;">
+        {{msg}}
+    </div>
+</div>
+{% endblock contenido %} {% block titulo %} - Registro {% endblock titulo %} {% block js %} {% endblock js %}

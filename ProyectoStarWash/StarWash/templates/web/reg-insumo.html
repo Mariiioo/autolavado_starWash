@@ -1,0 +1,61 @@
+{% extends "web/base.html" %}
+ {% load static%} {% block estilos %} {% endblock estilos %} {% block contenido%}
+<script>
+    function ir() {
+        location.href = '/administracion_insumos/';
+    }
+</script>
+
+<div id="section">
+    <h1>FORMULARIO DE INSUMOS</h1>
+    <form action="{% url 'INSUMOS' %}" method="POST" class="forma" onsubmit="return validarFormularioProductos()">
+        {% csrf_token %}
+        <table>
+            <h1 class="tituloFormulario">Complete el formulario insumos</h1>
+            <h5>Datos del Insumo</h5>
+            <div class="contenedor-formulario">
+                <tr>
+                    <!--ENTRE 3 Y 200 CARACTERES-->
+                    <td>
+                        <p class="lbl"> NOMBRE </p>
+                    </td>
+                    <td class="caja"><input type="text" id="txtNombreInsumo" name="NombreInsumo" class="field" minlength="3" maxlength="200" required placeholder="Ej: InsumoX"></td>
+                </tr>
+                <tr>
+                    <!--MAYOR A 1-->
+                    <td>
+                        <p class="lbl"> PRECIO </p>
+                    </td>
+                    <td class="caja"><input type="number" id="txtPrecio" name="Precio" class="field" required placeholder="Ej: 1000"></td>
+                </tr>
+                <tr>
+                    <!--ENTRE 3 Y 200 CARACTERES-->
+                    <td>
+                        <p class="lbl"> DESCRIPCION </p>
+                    </td>
+                    <td class="caja"><input type="text" id="txtDescripcion" name="Descripcion" class="field" minlength="3" maxlength="200" placeholder="Ej: Descripción"></td>
+                </tr>
+                <tr>
+                    <!--MAYOR A 1-->
+                    <td>
+                        <p class="lbl"> STOCK </p>
+                    </td>
+                    <td class="caja"><input type="number" id="txtStock" name="Stock" class="field" required placeholder="Ej: 10"></td>
+                </tr>
+            </div>
+
+        </table>
+        <div class="botones">
+            <input class="boton" type="submit" value="Enviar">
+            <input class="boton" type="reset" value="Limpiar">
+            <input class="boton" type="button" value="Administrar Insumos" onclick="ir()">
+
+        </div>
+    </form>
+    <div style="text-align: center; color: black">
+        <h2>{{mensaje}}</h2>
+    </div>
+</div>
+{% endblock contenido %} {% block js %}
+<script src="{% static 'js/valifacionesFProductos.js' %}"></script>
+{% endblock js %}

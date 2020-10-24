@@ -1,0 +1,792 @@
+* {
+    margin: 0;
+}
+
+.body {
+    margin: 0 auto;
+}
+
+.container {
+    width: 90%;
+    height: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.container h1 {
+    background: #1abc;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
+/* MENU */
+
+.header {
+    background: #1abc;
+    color: white;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+.header a {
+    text-decoration: none;
+    color: white;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+}
+
+.logo-nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Tira abajo el menú */
+    flex-wrap: wrap;
+}
+
+.menu-icon {
+    display: none;
+    max-width: 60px;
+    margin-right: 5px;
+}
+
+.menu-icon img {
+    width: 100%;
+    height: 100%;
+}
+
+.navigation ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.navigation ul li {
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    right: 0;
+}
+
+.navigation a {
+    display: block;
+    padding: 3px;
+    transition: all 0.4s linear;
+    border-radius: 5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 25px;
+}
+
+.navigation ul li a:hover {
+    background: white;
+    color: black;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url(../img/brickwall.png);
+}
+
+
+/* FOOTER */
+
+.footer {
+    background: #1abc;
+    width: 100%;
+    margin-bottom: 0;
+    position: relative;
+}
+
+.footer h5,
+h4 {
+    color: white;
+}
+
+.icon-footer {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.icon-footer img {
+    height: 30px;
+    width: 30px;
+    margin-top: 5px;
+    vertical-align: middle;
+}
+
+.icon-footer a {
+    text-decoration: none;
+    color: white;
+}
+
+.contactanos {
+    width: 45%;
+    padding-left: 30px;
+}
+
+.redesSociales {
+    width: 45%;
+    padding-left: 30px;
+}
+
+
+/* CARRUSEL */
+
+body {
+    font-family: 'lato';
+}
+
+.slide-contenedor {
+    max-width: 100%;
+    max-height: 30%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+}
+
+.miSlider {
+    display: none;
+    transition: 2s;
+    width: 100%;
+    height: 250px
+}
+
+.miSlider img {
+    width: 100%;
+    max-height: 100%;
+    height: inherit;
+    object-fit: cover;
+    vertical-align: top;
+    transition: 2s;
+    background-attachment: fixed;
+}
+
+.direcciones {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+}
+
+.direcciones a {
+    color: #fff;
+    display: inline-block;
+    padding: 20px;
+    text-decoration: none;
+}
+
+.direcciones a:hover {
+    background: rgba(0, 0, 0, .5);
+    transition: .5s;
+}
+
+.barras {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.barra {
+    cursor: pointer;
+    height: 2px;
+    width: 25px;
+    margin: 0 2px;
+    display: inline-block;
+    margin-left: 3px;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* CONTENIDO SE SERVICIOS */
+
+#seccionServicios {
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.servicios img {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.servicios {
+    width: 340px;
+    height: 700px;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.servicios h2 {
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.servicios p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-align: justify;
+    padding-top: 2px;
+    padding-left: 10px;
+}
+
+.servicios img:hover {
+    filter: brightness(0.5);
+    transition: 0.5s;
+    border: solid blue;
+}
+
+.servicios img:hover~h3 {
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: #1abc;
+    color: lightgoldenrodyellow;
+    border: solid black;
+    border-radius: 15px 15px 15px 15px;
+}
+
+.servicios img:hover~div {
+    margin: auto;
+    background-color: #1abc;
+    color: lightgoldenrodyellow;
+    border: solid black;
+    border-radius: 20px 0px 20px 0px;
+}
+
+
+/* UBICACION */
+
+
+/*Editar CONTENT*/
+
+.contenido {
+    margin: 0;
+    height: 85%;
+}
+
+.contenido h1 {
+    background: #1abc;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.contenido h4 {
+    color: #1abc;
+    text-align: center;
+}
+
+
+/*  Editar mapa de ubicacion */
+
+.ubicaciones {
+    margin: 0 auto;
+    height: 100%;
+    margin-bottom: 0px;
+}
+
+.mapa {
+    width: 100%;
+    height: 400px;
+    border-radius: 10px;
+}
+
+
+/*  Editar la descripcion de ubicacion */
+
+#ubicacion {
+    margin-top: 1%;
+    margin-bottom: 20px;
+    margin-left: 2.5%;
+    width: 43%;
+    height: 40%;
+    min-height: 500px;
+    min-width: 300px;
+    padding: 2%;
+    align-content: center;
+    text-align: center;
+    background-color: #1abc;
+    border-radius: 30px;
+    border: solid black;
+}
+
+.horarios {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#ubicacion:hover {
+    background-color: #F7F5F5;
+    color: #1abc;
+}
+
+#ubicacion img {
+    height: 65%;
+    width: 50%;
+}
+
+
+/*Editar seccion de servicios*/
+
+
+/* CLIENTES FELICES */
+
+#seccionClientes {
+    width: 100%;
+}
+
+#seccionClientes h1 {
+    background: #1abc;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#seccionClientes img {
+    max-width: 340px;
+    max-height: 400px;
+    border-radius: 20px;
+}
+
+.nuestrosClientes {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.testimonios img {
+    margin-bottom: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+
+/*------TABLA DE FORMULARIO DE REGISTRO y PRODUCTOS---------*/
+
+#section {
+    width: 100%;
+    height: 600px;
+}
+
+#section h1 {
+    background: #1abc;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.tituloFormulario {
+    color: black;
+    padding: 20px;
+    text-align: center;
+    font-size: 35px;
+    background: #1abc;
+    border-bottom: solid 4px black;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.contenido h5 {
+    color: black;
+    align-content: center;
+}
+
+.lbl {
+    color: teal;
+    width: 150px;
+}
+
+.forma {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 2%;
+    max-width: 800px;
+    /*PARA CENTRAR EL FORMULARIO*/
+    background-color: #eee;
+    border-radius: 2%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    align-content: center;
+}
+
+.forma table,
+h5 {
+    padding-left: 5%;
+}
+
+.forma table contenedor-formulario {
+    background-color: black;
+}
+
+.field {
+    border-radius: 5px;
+    border: solid teal 1px;
+    padding: 6px;
+    border-color: teal;
+    color: teal;
+    width: 100%
+}
+
+.caja {
+    width: 100%;
+    padding-right: 5%;
+}
+
+.botones {
+    padding: 20px;
+    padding-left: 10%;
+}
+
+.boton {
+    border-radius: 10px;
+    border-color: white;
+    background-color: #1abc;
+    width: 44%;
+    height: 40px;
+    color: white;
+}
+
+.boton:hover {
+    background-color: #F7F5F5;
+    color: teal;
+    border-radius: 10px;
+    border-color: teal;
+    cursor: pointer;
+}
+
+
+/* Carrousel */
+
+.titulo {
+    font-size: 40px;
+    font-family: 'Dancing Script', cursive;
+    margin-bottom: 40px;
+    color: #fff;
+}
+
+.subtitulo {
+    margin: 0;
+    color: #000;
+    display: inline;
+    font-size: 50px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.sabor {
+    color: #fff;
+    margin: 7px 0;
+    font-size: 50px;
+    font-weight: 600;
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.7);
+    font-family: 'Dancing Script', cursive;
+    margin-top: 0;
+}
+
+.linea-division {
+    width: 80%;
+    height: 2px;
+    background-color: #36221c;
+}
+
+
+/*-----------EDITAR CONTENIDO PAGINA CONOCENOS-------------*/
+
+
+/*-----------DESCRIPCION-------------*/
+
+.conocenos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+/*----------- MISION -------------*/
+
+.mision {
+    margin-top: 1%;
+    margin-bottom: 20px;
+    margin-left: 2.5%;
+    width: 40%;
+    height: 40%;
+    min-height: 500px;
+    min-width: 300px;
+    padding: 2%;
+    align-content: center;
+    text-align: center;
+    background-color: #1abc;
+    border-radius: 30px;
+    border: solid black;
+}
+
+.mision img {
+    width: 45%;
+    text-align: center;
+    margin-bottom: 7px;
+}
+
+.mision h2 {
+    margin-top: 7px;
+    text-align: center;
+    margin-bottom: 7px;
+    font-size: xx-large;
+}
+
+.mision h3 {
+    margin-top: 30px;
+    text-align: justify;
+    float: left;
+}
+
+.mision:hover {
+    background-color: #F7F5F5;
+    color: #1abc;
+}
+
+
+/*----------- VISION ------------*/
+
+.vision {
+    margin-top: 1%;
+    margin-bottom: 20px;
+    margin-left: 2.5%;
+    width: 40%;
+    height: 40%;
+    min-height: 500px;
+    min-width: 300px;
+    padding: 2%;
+    align-content: center;
+    text-align: center;
+    background-color: #1abc;
+    border-radius: 30px;
+    border: solid black;
+}
+
+.vision img {
+    width: 45%;
+    text-align: center;
+    margin-bottom: 7px;
+}
+
+.vision h2 {
+    margin-top: 7px;
+    text-align: center;
+    margin-bottom: 7px;
+    font-size: xx-large;
+}
+
+.vision h3 {
+    margin-top: 30px;
+    text-align: justify;
+    float: left;
+}
+
+.vision:hover {
+    background-color: #F7F5F5;
+    color: #1abc;
+}
+
+
+/* ------- GALERIA FOTOGRAFICA ---------- */
+
+.galeria-imagenes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#contenido-galeria {
+    background-color: black;
+    margin: 0 auto;
+}
+
+#galeria {
+    float: left;
+    padding: 10px 5px 10px 5px;
+    text-align: center;
+    background-color: #1abc;
+    margin: 0.5%;
+    width: 370px;
+    height: 300px;
+    border: solid 3px #1abc;
+    border-radius: 25px 25px 25px 25px;
+}
+
+#galeria img {
+    width: 100%;
+    height: 80%;
+    border-radius: 10px 0px 10px 0px;
+}
+
+#galeria:hover {
+    background-color: #F7F5F5;
+    color: #1abc;
+}
+
+
+/*-----------FIN TABLA DE REGISTROS-------------*/
+
+@media only screen and (max-width: 1032px) {
+    .menu-icon {
+        display: block;
+        cursor: pointer;
+    }
+    .navigation {
+        width: 100%;
+    }
+    .navigation ul {
+        display: none;
+    }
+    .navigation ul.show {
+        display: block;
+    }
+    .navigation ul li {
+        display: block;
+    }
+    .navigation ul li a {
+        display: block;
+        padding: 3px;
+        transition: all 0.4s linear;
+        border-radius: 5px;
+        text-align: center;
+    }
+    .navigation ul li a:hover {
+        background: white;
+        color: #1abc;
+    }
+}
+
+
+/* PARA PANTALLAR PEQUEÑAS CELULARES */
+
+@media screen and (min-width: 200px) and (max-width: 400px) {
+    .main h1,
+    h2 {
+        font-size: 3vh;
+    }
+    .main h5 {
+        font-size: 2vh;
+    }
+    /* TODO LO QUE VA DENTRO DE MAIN */
+    /* ---------------------------------------------------------------------- */
+    /* COMIEN<O DE INDEX */
+    /* CARRUCEL */
+    .slide-contenedor {
+        height: 200px;
+    }
+    .main {
+        min-height: 550px;
+    }
+    #seccionClientes {
+        margin-bottom: 2px;
+    }
+    #seccionClientes img {
+        margin: auto;
+    }
+    /* FOOTER */
+    .icon-footer {
+        display: block;
+        align-items: center;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        margin: 0;
+    }
+    .icon-footer img {
+        height: 20px;
+        width: 20px;
+        margin-top: 5px;
+        vertical-align: middle;
+    }
+    .icon-footer a {
+        text-decoration: none;
+    }
+    .contactanos {
+        width: 100%;
+        padding-left: 20px;
+    }
+    .redesSociales {
+        padding-left: 20px;
+        width: 100%;
+    }
+    /* SERVICIOS */
+    #seccionServicios {
+        height: 2000px;
+    }
+    .servicios img {
+        width: 100%;
+        height: 200px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+    }
+    .servicios {
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+    /* FIN DE INDEX */
+    /* ---------------------------------------------------------------------- */
+    /* COMIENSO DE UBICACIÓN */
+    .conocenos {
+        font-size: 10.5px;
+    }
+    #ubicacion {
+        width: 46%;
+        height: 100%;
+    }
+    /* ---------------------------------------------------------------------- */
+    /* COMIENSO DE FORMUARIOS */
+    #section {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 20px;
+    }
+    .forma {
+        margin: 0 auto;
+        min-width: 98%;
+        width: 95%;
+    }
+}

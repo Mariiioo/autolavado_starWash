@@ -1,0 +1,29 @@
+{% extends "web/base.html" %}
+{% load static%}
+
+{% block estilos %}
+    <link rel="stylesheet" href="{% static 'css/lightbox.min.css' %}">
+{% endblock estilos %}
+
+{% block titulo %}
+- Galeria
+{% endblock titulo %}
+
+{% block contenido %}
+        <h1>Visualiza nuestra Galería de Imagenes</h1>
+        <div class="galeria-imagenes">
+            {% for item in imagenes_galeria %}
+            <div id="galeria">
+                <h3>{{item.nombre}}</h3>
+                <a href="{{item.imagen.url}}" data-lightbox="Galeria" data-title="{{item.descripcion}}">
+                    <img src="{{item.imagen.url}}" alt="">
+                </a>
+                <h3>{{item.descripcion}}</h3>
+            </div>
+            {% endfor %}
+        </div>
+{% endblock contenido %}
+
+{% block js %}
+    <script src="{% static 'js/lightbox-plus-jquery.min.js' %}"></script>
+{% endblock js %}

@@ -1,0 +1,36 @@
+{% extends "web/base.html" %}
+{% load static%}
+{% block titulo %}
+- Ubicación
+{% endblock titulo %}
+{% block contenido %}
+        <div class="ubicaciones">
+            <h1>Av. Concha Y Toro 3919, Puente Alto, Región Metropolitana</h1>
+            <div class="mapa">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9268.034643096235!2d-70.58773856596211!3d-33.568796493607906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x16613ce631340e43!2sAuto%20Lavado!5e0!3m2!1sen!2scl!4v1599267262653!5m2!1sen!2scl"
+                    width="1348" height=" 550 " frameborder="0 " style="border:1; " allowfullscreen=" " aria-hidden="false " tabindex="0 " class="mapa "></iframe>
+            </div>
+            <div class="horarios">
+                <div id="ubicacion">
+                    <h2>
+                        Encuentra nuestra casa matriz en:
+                    </h2>
+                    <img src="{% static 'img/ubicacion/ubicacion2.png' %}" alt="">
+                    <h3>
+                        • Av. Concha Y Toro 3919, Puente Alto, Región Metropolitana. En donde encontraras nuestros estacionamientos preparados para recibir cualquier tipo de automóvil para prestar nuestro servicio de calidad.
+                    </h3>
+                </div>
+                <div id="ubicacion">
+                    <h3>Para cualquier reclamo, sugerencia, asociación, solicitud de empleo, etc. No dude en contactarnos.
+                    </h3>
+                    <h2>HORARIOS DE ATENCION</h2>
+                    <img src="{% static 'img/ubicacion/horario1.png' %}" alt="">
+                    <h3>Lunes a Viernes de 09:00 a 19:00</h3>
+                    <h3>Sabados y Festivos de 09:00 a 15:00</h3>
+                </div>
+            </div>
+        </div>
+{% endblock contenido %}
+
+
+    

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StarWash {% block titulo %} {% endblock titulo %}</title>
+
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}"> {% block estilos %} {% endblock estilos %}
+    <link rel="icon" href="{% static 'img/logo/Logo.png' %}"  />
+
+</head>
+<body>
+    <!-- CaBECERA -->
+    <header class="header">
+        <div class="container logo-nav-container">
+            <div class="logo">
+                <a href="{% url 'INDEX' %}">
+                    <img src="{% static 'img/logo/Logo.png' %}" alt="">
+                </a>
+            </div>
+            <span class="menu-icon"><img src="{% static 'img/logo/icono-menu.png' %}" alt="" ></span>
+            <nav class="navigation">
+                <ul class="">
+                    <li><a href="{% url 'INDEX' %}">Home</a></li>
+                    <li><a href="{% url 'CONOCENOS' %}">Conócenos</a></li>
+                    <li><a href="{% url 'UBICACION' %}">Ubicación</a></li>
+                    <li><a href="{% url 'GALERIA' %}">Galería</a></li>
+                    {% if user.is_authenticated %}
+                    {% comment %} <li><a href="{% url 'ADMIN_INSUMO' %}">CRUD Insumo</a></li> {% endcomment %}
+                    <li><a href="{% url 'INSUMOS' %}">Insumos</a></li>
+                    <li><a href="">Bienvenido {{user.first_name}} {{user.last_name}}</a></li>
+                    <li><a href="{% url 'LOGOUT' %}">Cerrar Sesión</a></li>
+                    {% else %}
+                    <li><a href="{% url 'FORMULARIO' %}">Registrar</a></li>
+                    <li><a href="{% url 'LOGIN' %}">Iniciar Sesión</a></li>
+                    {% endif%}
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- CONTENIDO  -->
+    <main class="main">
+        <div class="container">
+            {% block contenido %} {% endblock contenido %}
+        </div>
+    </main>
+    <!-- PIE DE PAGINA -->
+    <footer class="footer">
+        <div class="container">
+            <div class="icon-footer ">
+                <div class="contactanos">
+                    <h4>Contactanos</h4>
+                    <p>
+                        <a href="https://web.whatsapp.com/ " target="_blank ">
+                            <img src="{% static 'img/redesSociales/icon_whatsapp.png' %} "> +56 9 9667 3469
+                        </a>
+                    </p>
+                    <p>
+                        <a href="https://web.whatsapp.com/ " target="_blank ">
+                            <img src="{% static 'img/redesSociales/icon_whatsapp.png' %} "> +56 9 5846 4722
+                        </a>
+                    </p>
+                    <p>
+                        <a href="https://www.gmail.com/mail/help/intl/es/about.html?iframe " target="_blank ">
+                            <img src="{% static 'img/redesSociales/icon_gmail.png' %} "> auto.lava3bkno@gmail.com
+                        </a>
+                    </p>
+                </div>
+                <div class="redesSociales">
+
+                    <h4>Nuestras Redes Sociales</h4>
+                    <p>
+                        <a href="https://www.facebook.com/miguel.lavado.1829 " target="_blank ">
+                            <img src="{% static 'img/redesSociales/icon_facebook.png' %} "> Siguenos en Facebook
+                        </a>
+                    </p>
+                    <p>
+                        <a href="https://www.instagram.com/autolavtresope/?hl=en " target="_blank ">
+                            <img src="{% static 'img/redesSociales/icon_instagram.png' %} "> Siguenos en Instagram
+                        </a>
+                    </p>
+                    <p>
+                        <a href="https://twitter.com/AutoLavado7 " target="_blank ">
+                            <img src="{% static 'img/redesSociales/icon_twitter.png' %} "> Siguenos en Twitter
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- referencias de Scripts -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js "></script>
+    <script src="{% static 'js/barraMenu.js' %} "></script>
+    <script src="{% static 'js/carousel.js' %} "></script>
+    {% block js %} {% endblock js %}
+
+
+</body>
+
+</html>

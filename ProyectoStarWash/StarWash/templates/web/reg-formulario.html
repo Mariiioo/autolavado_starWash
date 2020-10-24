@@ -1,0 +1,80 @@
+{% extends "web/base.html" %} {% load static %} {% block contenido %}
+<div id="section">
+    <h1>FORMULARIO DE INSCRIPCIÓN</h1>
+    <form action="{% url 'FORMULARIO' %}" method="POST" class="forma" onsubmit="return valFormulatioUsuario()">
+        {% csrf_token %}
+        <!--table CREA LA SECCION PARA LA TABLA CON LOS CAMPOS REQUERIDOS-->
+        <table>
+            <h1 class="tituloFormulario">Complete el formulario</h1>
+
+            <!--tr divide los dos td para el nombre y el campo que requiere-->
+            <h5>Datos Personales</h5>
+            <!-- <tr>
+                <!--DEBE SER UN RUT VALIDO-->
+            <!--    <td>
+                    <p class="lbl"> RUT </p>
+                </td>
+                <td class="caja"><input type="text" id="txtRut" name="txtRut" class="field" required maxlength="10" placeholder="Ej: 12345678-K"></td>
+            </tr> 
+            -->
+            <tr>
+                <!--DEBE SER EBTRE 3 Y 80 CARACTERES-->
+                <td>
+                    <p class="lbl"> NOMBRE </p>
+                </td>
+                <td class="caja"><input type="text" id="txtNombre" name="Nombre" class="field" minlength="3" maxlength="80" required placeholder="Ej: Miguel"> </td>
+            </tr>
+            <tr>
+                <!--DEBE SER EBTRE 3 Y 80 CARACTERES-->
+                <td>
+                    <p class="lbl"> APELLIDO </p>
+                </td>
+                <td class="caja"><input type="text" id="txtApellido" name="Apellido" class="field" minlength="3" maxlength="80" required placeholder="Ej: Ramirez"></td>
+            </tr>
+            <tr>
+                <!--DEBE SER UN EMAIL VALIDO-->
+                <td>
+                    <p class="lbl"> EMAIL </p>
+                </td>
+                <td class="caja"><input type="email" id="txtEmail" name="Email" class="field" required placeholder="Ej: migue.rez@gmail.com"></td>
+            </tr>
+        </table>
+        <table>
+            <h5>Tu Cuenta</h5>
+            <tr>
+                <!--DEBE TENER MINIMO 8 CARACTERES-->
+                <td>
+                    <p class="lbl"> NOMBRE USUARIO </p>
+                </td>
+                <td class="caja"><input type="text" id="txtNombreUsuario" name="NombreUsuario" class="field" minlength="8" required placeholder="Ej: Miggelito">
+                </td>
+            </tr>
+            <tr>
+                <!--DEBE TENER MINIMO 8 CARACTERES-->
+                <td>
+                    <p class="lbl"> CONTRASEÑA </p>
+                </td>
+                <td class="caja"><input type="password" id="txtPass" name="Pass1" class="field" minlength="8" required></td>
+            </tr>
+            <tr>
+                <!--DEBE TENER MINIMO 8 CARACTERES-->
+                <td>
+                    <p class="lbl"> REPETIR CONTRASEÑA </p>
+                </td>
+                <td class="caja"><input type="password" id="txtPassRepetida" name="Pass2" class="field" minlength="8" required></td>
+            </tr>
+
+        </table>
+        <div class="botones">
+            <input class="boton" type="submit" value="Enviar">
+            <input class="boton" type="reset" value="Limpiar">
+        </div>
+
+    </form>
+    <div style="text-align: center;">
+        {{msg}}
+    </div>
+</div>
+{% endblock contenido %} {% block titulo %} - Registro {% endblock titulo %} {% block js %}
+<script src="{% static 'js/validacionesFormulario.js' %}"></script>
+{% endblock js %}

@@ -1,0 +1,32 @@
+{% extends "web/base.html" %} 
+{% load static%} 
+{% block titulo %} - Conócenos {% endblock titulo %} 
+
+{% block contenido %}
+    <h1>Conoce sobre Nosotros</h1>
+    {% for item in myv %}
+
+    <div class="conocenos">
+
+        <div class="mision">
+
+            <h2>Mision</h2>
+                        <img src="{{item.imagenMision.url}}" alt="">
+
+            <h3>
+                {{item.mision}}
+            </h3>
+
+        </div>
+        <div class="vision">
+            <h2>Vision</h2>
+                        <img src="{{item.imagenVision.url}}" alt="">
+
+            <h3>
+                {{item.vision}}
+            </h3>
+        </div>
+    </div>
+    {% endfor %}
+
+{% endblock contenido %}

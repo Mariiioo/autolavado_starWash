@@ -12,16 +12,18 @@ from django.contrib.auth.decorators import login_required, permission_required
 # Create your views here.
 def logout_vista(request):
     logout(request)
-    return render(request,'web/index.html')
+    slider = Slider.objects.all()
+    return render(request,'web/index.html',{'imagSlider':slider})
 
 def login(request):
+    slider = Slider.objects.all()
     if request.POST:
         usuario = request.POST.get("NombreUsuario")
         password = request.POST.get("Pass")
         us = authenticate(request,username=usuario,password=password)
         if us is not None and us.is_active:
             login_autent(request,us)
-            return render(request,'web/index.html',{'user':us})
+            return render(request,'web/index.html',{'imaSlider':slider},{'user':us})
         else:
             return render(request,'web/login.html', {'msg':'El usuario NO existe'}) 
     return render(request, 'web/login.html')

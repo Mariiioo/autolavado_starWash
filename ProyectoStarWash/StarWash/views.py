@@ -145,6 +145,11 @@ def adminInsumo(request):
 
     return render(request,'web/admin_insumos.html',{'lista_insumos':lista_insumos})
 
+
+# ELIMINA EL INSUMO
+@login_required(login_url='/login/') #pide que este logeado
+@permission_required('StarWash.view_insumo', login_url='/login/') #pide un permiso para ver insumos
+@permission_required('StarWash.delete_insumo', login_url='/login/') #pide un permiso para ver insumos
 def eliminar_insumo(request, id):
     #Lista de insumos
     lista_insumos = Insumo.objects.all()
@@ -156,6 +161,40 @@ def eliminar_insumo(request, id):
         mensaje = "NO Elimino Insumo"
     return render(request,'web/admin_insumos.html',{'mensaje':mensaje,'lista_insumos':lista_insumos})
         
+# BUSCA EL INSUMO
+@login_required(login_url='/login/') #pide que este logeado
+@permission_required('StarWash.view_insumo', login_url='/login/') #pide un permiso para ver insumos
+def buscar(request,id):
+    try:
+        insumo = Insumo.objects.get(nombre=id)
+        return render(request,'web/formulario_insumo_mod.html',{'insumo':insumo})
+    except :
+        msg = 'No existe el Insumo'
+    lista_insumos = Insumo.objects.all()
+    return render(request,'web/admin_insumos.html',{'lista_insumos':lista_insumos,'mensaje':msg})
+
+# MODIFICAR EL INSUMO
+@login_required(login_url='/login/') #pide que este logeado
+@permission_required('StarWash.view_insumo', login_url='/login/') #pide un permiso para ver insumos
+@permission_required('StarWash.change_insumo', login_url='/login/') #pide un permiso para ver insumos
+def modificar(request):
+    if request.POST:
+        nombreIns = request.POST.get("NombreInsumo")
+        precioIns = request.POST.get("Precio")
+        descIns = request.POST.get("Descripcion")
+        stockIns = request.POST.get("Stock")
+        
+        try:
+            i = Insumo.objects.get(nombre=nombreIns)
+            i.precio = precioIns
+            i.descripcion = descIns
+            i.stock = stockIns
+            i.save()
+            msg = 'Se modifico el Insumo'
+        except:
+            msg = 'No se modifico'
+    lista_insumos = Insumo.objects.all()
+    return render(request,'web/admin_insumos.html',{'lista_insumos':lista_insumos,'mensaje':msg})
 
 
 

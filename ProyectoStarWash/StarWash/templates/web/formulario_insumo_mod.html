@@ -7,6 +7,7 @@
 
 <div id="section">
     <h1>Formulario de Modificación de Insumo</h1>
+    <input class="boton-admin" type="button" value="Listado Insumos" onclick="ir()">
     <form action="{% url 'MODIFICAR' %}" method="POST" class="forma" onsubmit="return validarFormularioProductos()">
         {% csrf_token %}
         <table>
@@ -48,7 +49,6 @@
         <div class="botones ">
             <input class="boton" type="submit" value="Modificar">
             <input class="boton" type="reset" value="Limpiar">
-            <input class="boton" type="button" value="Listado Insumos" onclick="ir()">
         </div>
     </form>
     <div style="text-align: center; color: black ">

@@ -23,11 +23,10 @@ def login(request):
         us = authenticate(request,username=usuario,password=password)
         if us is not None and us.is_active:
             login_autent(request,us)
-            return render(request,'web/index.html',{'imaSlider':slider},{'user':us})
+            return render(request,'web/index.html',{'imagSlider':slider},{'user':us})
         else:
             return render(request,'web/login.html', {'msg':'El usuario NO existe'}) 
     return render(request, 'web/login.html')
-
     
  ## FORMULARIO PARA AGREGAR INSUMOS   
 @login_required(login_url='/login/') #pide que este logeado

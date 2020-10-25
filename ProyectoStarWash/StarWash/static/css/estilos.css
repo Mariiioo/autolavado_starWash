@@ -17,6 +17,8 @@
     background: #1abc;
     text-align: center;
     margin-bottom: 5px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
 }
 
 
@@ -64,31 +66,39 @@
     height: 100%;
 }
 
-.navigation ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+
+/* .barraMenu {
+    background-color: green;
+} */
+
+.bienvenidaUsuario {
+    text-align: right;
+    /* background-color: red; */
+    margin-right: 0;
+    text-decoration: none;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px;
 }
+
+
+/* .navigation {
+    background-color: blue;
+} */
 
 .navigation ul li {
     display: inline-block;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 5px;
     right: 0;
+    text-align: center;
 }
 
 .navigation a {
-    display: block;
     padding: 3px;
     transition: all 0.4s linear;
     border-radius: 5px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 25px;
-}
-
-.navigation ul li a:hover {
-    background: white;
-    color: black;
+    font-size: 20px;
 }
 
 .main {
@@ -493,6 +503,29 @@ h5 {
     border-radius: 10px;
     border-color: teal;
     cursor: pointer;
+}
+
+.boton-admin {
+    border-radius: 10px;
+    border-color: teal;
+    background-color: white;
+    width: 20%;
+    height: 40px;
+    color: teal;
+}
+
+.boton-admin:hover {
+    background-color: #1abc;
+    color: white;
+    border-radius: 10px;
+    border-color: white;
+    cursor: pointer;
+}
+
+.tabla-insumos {
+    /* color: teal; */
+    margin: auto;
+    width: 100%;
 }
 
 

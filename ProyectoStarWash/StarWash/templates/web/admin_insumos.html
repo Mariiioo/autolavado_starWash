@@ -35,8 +35,8 @@
 <div class=container>
     <h3> Listado de Insumos</h3>
     <input class="boton-admin" type="button" value="Ingresar Insumos" onclick="ir()">
-    <table class="tabla-insumos" >
-        <tr class="titulo-tabla" style="background-color:cadetblue; color: white;">
+    <table class="tabla-insumos">
+        <tr class="titulo-tabla">
             <td>Nombre</td>
             <td>Precio</td>
             <td>Descripción</td>
@@ -50,14 +50,12 @@
             <td>{{i.descripcion}}</td>
             <td>{{i.stock}}</td>
             <td>
-                <input type="button" value="Eliminar" onclick="eliminar('{{i.nombre}}')">
-
-                <input type="button" value="Modificar" onclick="actualizar('{{i.nombre}}')">
+                <input class="boton-eliminar" type="button" value="Eliminar" onclick="eliminar('{{i.nombre}}')">
+                <input class="boton-modificar" type="button" value="Modificar" onclick="actualizar('{{i.nombre}}')">
             </td>
         </tr>
         {% endfor %}
     </table>
-
 </div>
 
 {% endblock contenido %}

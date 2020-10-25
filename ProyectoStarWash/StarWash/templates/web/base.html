@@ -23,12 +23,13 @@
 
             </div>
             <div class="barraMenu">
-                <span class="menu-icon"><img src="{% static 'img/logo/icono-menu.png' %}" alt="" ></span>
+               
                 <div class="bienvenidaUsuario">
                     {% if user.is_authenticated %}
                     <p> Bienvenido {{user.first_name}} {{user.last_name}}</p>
                     {% endif%}
                 </div>
+                 <span class="menu-icon"><img src="{% static 'img/logo/icono-menu.png' %}" alt="" ></span>
                 <nav class="navigation">
                     <ul class="">
                         <li><a href="{% url 'INDEX' %}">Inicio</a></li>

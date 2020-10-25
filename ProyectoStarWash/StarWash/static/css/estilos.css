@@ -522,10 +522,63 @@ h5 {
     cursor: pointer;
 }
 
+
+/* ESTILO DE TABLA INSUMOS */
+
 .tabla-insumos {
     /* color: teal; */
     margin: auto;
+    margin-top: 20px;
     width: 100%;
+}
+
+.titulo-tabla {
+    background-color: cadetblue;
+    color: white;
+    height: 30px;
+    width: 100%;
+}
+
+.datos-tabla {
+    color: black;
+    height: 30px;
+    border-top: 5px;
+    border-bottom: 50px;
+    width: 100%;
+}
+
+.boton-eliminar {
+    background-color: #D32F2F;
+    color: white;
+    border-radius: 10px;
+    height: 30px;
+    width: 40%;
+    border-color: teal;
+    cursor: pointer;
+}
+
+.boton-eliminar:hover {
+    background-color: white;
+    color: red;
+    border-color: teal;
+    cursor: pointer;
+}
+
+.boton-modificar {
+    background-color: #0033CC;
+    color: white;
+    border-radius: 10px;
+    height: 30px;
+    width: 40%;
+    border-color: teal;
+    cursor: pointer;
+}
+
+.boton-modificar:hover {
+    background-color: white;
+    color: black;
+    border-color: teal;
+    cursor: pointer;
 }
 
 

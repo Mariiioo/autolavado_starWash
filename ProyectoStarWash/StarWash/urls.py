@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path,include
-from .views import index,galeria,formulario,conocenos,ubicacion, insumos, login, logout_vista, adminInsumo, eliminar_insumo
+from .views import index,galeria,formulario,conocenos,ubicacion, insumos, login, logout_vista, adminInsumo, eliminar_insumo, buscar, modificar
 
 urlpatterns = [
     path('',index,name="INDEX"),
@@ -12,5 +12,7 @@ urlpatterns = [
     path('login/', login, name="LOGIN"),
     path('logout_vista/', logout_vista, name="LOGOUT"),
     path('administracion_insumos/', adminInsumo, name='ADMIN_INSUMO'),
-    path('eliminar_insumo/<id>/', eliminar_insumo, name="ELIM_INSUMO")
+    path('eliminar_insumo/<id>/', eliminar_insumo, name="ELIM_INSUMO"),
+    path('buscar/<id>/', buscar, name='BUSCAR'),
+    path('modificar/', modificar, name='MODIFICAR'),
 ]

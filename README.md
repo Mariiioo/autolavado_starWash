@@ -7,7 +7,7 @@ A) Tabla Insumos.
 Se implementaron pruebas unitarias para comprobar el correto funcionamiento de las funcionalidades tanto de agregar, eliminar y modificar, esto simulando datos para
 cada campo requerido y observando las respuestas entregadas por el sistema.
 
-# - Código #:
+# Código 
   
     def test_grabar(self):
         valor = 0
@@ -59,7 +59,7 @@ A) Tabla Registro.
 
 De igual manera se implementaron para comprobar el correto funcionamiento de las funcionalidades simulando datos para revisar el comportamiento del sistema con ellos.
 
-Código
+#Código
 def test_agregar_reg(self):
 
         valor = 0

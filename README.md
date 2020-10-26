@@ -59,9 +59,10 @@ A) Tabla Registro.
 
 De igual manera se implementaron para comprobar el correto funcionamiento de las funcionalidades simulando datos para revisar el comportamiento del sistema con ellos.
 
-#Código
-def test_agregar_reg(self):
+# Código
 
+  
+    def test_agregar_reg(self)
         valor = 0
 
         nombre = "Juan"
@@ -101,3 +102,4 @@ def test_agregar_reg(self):
         except:
             valor=0       
         self.assertEquals(valor,1)
+

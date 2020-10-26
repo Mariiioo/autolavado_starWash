@@ -34,6 +34,27 @@ class TablaInsumos(unittest.TestCase):
             valor=0       
         self.assertEquals(valor,1)
 
+    def test_modificar(self):
+        valor= 1
+        nombreIns = "Limpia Vidrios"
+        precioIns = 2000
+        descIns = "Limpia Vidrios Especial"
+        stockIns = 20
+
+        try:
+            ins = Insumo.objects.get(nombre=nombreIns)
+            ins.precio = precioIns
+            ins.descripcion = descIns
+            ins.stock = stockIns
+            ins.save()
+            valor= 1
+
+        except:
+            valor= 0
+        self.assertEquals(valor,1)
+
+
+
 class TablaRegistro(unittest.TestCase):
     def test_agregar_reg(self):
 

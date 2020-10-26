@@ -55,7 +55,7 @@ cada campo requerido y observando las respuestas entregadas por el sistema.
             valor= 0
         self.assertEquals(valor,1)
 
-A) Tabla Registro.
+B) Tabla Registro.
 
 De igual manera se implementaron para comprobar el correto funcionamiento de las funcionalidades simulando datos para revisar el comportamiento del sistema con ellos.
 

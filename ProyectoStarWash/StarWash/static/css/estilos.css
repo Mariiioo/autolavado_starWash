@@ -1,9 +1,9 @@
 * {
-    margin: 0;
+    margin: 0 auto;
 }
 
 .body {
-    margin: 0 auto;
+    width: 100%;
 }
 
 .container {
@@ -208,6 +208,14 @@ body {
     transition: .5s;
 }
 
+.atras {
+    margin-left: 0;
+}
+
+.adelante {
+    margin-right: 0;
+}
+
 .barras {
     position: absolute;
     bottom: 0;
@@ -311,7 +319,7 @@ body {
 /*Editar CONTENT*/
 
 .contenido {
-    margin: 0;
+    margin: 0 auto;
     height: 85%;
 }
 
@@ -347,7 +355,6 @@ body {
 #ubicacion {
     margin-top: 1%;
     margin-bottom: 20px;
-    margin-left: 2.5%;
     width: 43%;
     height: 40%;
     min-height: 500px;
@@ -361,9 +368,10 @@ body {
 }
 
 .horarios {
+    margin: 0 auto;
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
-    justify-content: center;
 }
 
 #ubicacion:hover {
@@ -512,6 +520,7 @@ h5 {
     width: 20%;
     height: 40px;
     color: teal;
+    min-width: 200px;
 }
 
 .boton-admin:hover {
@@ -529,7 +538,6 @@ h5 {
     /* color: teal; */
     margin: auto;
     margin-top: 20px;
-    width: 100%;
 }
 
 .titulo-tabla {
@@ -581,6 +589,26 @@ h5 {
     cursor: pointer;
 }
 
+.t-nombre {
+    width: 20%;
+}
+
+.t-precio {
+    width: 5%;
+}
+
+.t-desc {
+    width: 50%;
+}
+
+.t-stock {
+    width: 5%;
+}
+
+.t-ope {
+    width: 20%;
+}
+
 
 /* Carrousel */
 
@@ -625,6 +653,7 @@ h5 {
 .conocenos {
     display: flex;
     flex-wrap: wrap;
+    margin: 0 auto;
     justify-content: center;
 }
 
@@ -634,11 +663,10 @@ h5 {
 .mision {
     margin-top: 1%;
     margin-bottom: 20px;
-    margin-left: 2.5%;
     width: 40%;
     height: 40%;
     min-height: 500px;
-    min-width: 300px;
+    min-width: 220px;
     padding: 2%;
     align-content: center;
     text-align: center;
@@ -677,11 +705,10 @@ h5 {
 .vision {
     margin-top: 1%;
     margin-bottom: 20px;
-    margin-left: 2.5%;
     width: 40%;
     height: 40%;
     min-height: 500px;
-    min-width: 300px;
+    min-width: 220px;
     padding: 2%;
     align-content: center;
     text-align: center;
@@ -754,7 +781,7 @@ h5 {
 
 /*-----------FIN TABLA DE REGISTROS-------------*/
 
-@media only screen and (max-width: 1032px) {
+@media only screen and (max-width: 757px) {
     .menu-icon {
         display: block;
         cursor: pointer;
@@ -776,11 +803,25 @@ h5 {
         padding: 3px;
         transition: all 0.4s linear;
         border-radius: 5px;
-        text-align: center;
+        text-align: right;
     }
     .navigation ul li a:hover {
         background: white;
         color: #1abc;
+    }
+    .forma {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1050px) {
+    .boton-eliminar {
+        justify-content: center;
+        width: 100%;
+    }
+    .boton-modificar {
+        justify-content: center;
+        width: 100%;
     }
 }
 
@@ -788,6 +829,12 @@ h5 {
 /* PARA PANTALLAR PEQUEÑAS CELULARES */
 
 @media screen and (min-width: 200px) and (max-width: 400px) {
+    .body {
+        width: 100%;
+    }
+    .main {
+        width: 100%;
+    }
     .main h1,
     h2 {
         font-size: 3vh;
@@ -798,10 +845,6 @@ h5 {
     /* TODO LO QUE VA DENTRO DE MAIN */
     /* ---------------------------------------------------------------------- */
     /* COMIEN<O DE INDEX */
-    /* CARRUCEL */
-    .slide-contenedor {
-        height: 200px;
-    }
     .main {
         min-height: 550px;
     }
@@ -841,7 +884,6 @@ h5 {
         height: 2000px;
     }
     .servicios img {
-        width: 100%;
         height: 200px;
         margin-bottom: 10px;
         border-radius: 5px;
@@ -857,8 +899,9 @@ h5 {
         font-size: 10.5px;
     }
     #ubicacion {
-        width: 46%;
+        width: 100%;
         height: 100%;
+        min-width: 220px;
     }
     /* ---------------------------------------------------------------------- */
     /* COMIENSO DE FORMUARIOS */
@@ -871,5 +914,27 @@ h5 {
         margin: 0 auto;
         min-width: 98%;
         width: 95%;
+    }
+    .boton-admin {
+        width: 50%;
+        margin-bottom: 5px;
+    }
+    .tabla-insumos {
+        display: block;
+        overflow-x: auto;
+    }
+    .tabla-insumos input {
+        display: flex;
+    }
+    .titulo-tabla {
+        width: 10px
+    }
+    .boton-eliminar {
+        justify-content: center;
+        width: 100%;
+    }
+    .boton-modificar {
+        justify-content: center;
+        width: 100%;
     }
 }

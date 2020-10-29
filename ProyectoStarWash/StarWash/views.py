@@ -52,6 +52,7 @@ def insumos(request):
 
 ## FORMULARIO REGISTRO
 def formulario(request):
+    slider = Slider.objects.all()
     if request.POST:
         nombre = request.POST.get("Nombre")
         apellido = request.POST.get("Apellido")
@@ -76,7 +77,7 @@ def formulario(request):
                 if pass1 != pass2: #Pregunta si las contraseñas no son iguales
                     mensaje = "Las contraseñas no coinciden"
                     return render(request,'web/reg-formulario.html',{'msg':mensaje})
-                
+
                 u = User()
                 u.first_name = nombre
                 u.last_name = apellido
@@ -86,7 +87,7 @@ def formulario(request):
                 u.save()
                 us = authenticate(request,username=usuario,password=pass1)
                 login_autent(request,us)
-                return render(request,'web/index.html',{'user':us})
+                return render(request,'web/index.html',{'imagSlider':slider},{'user':us})
     return render(request,'web/reg-formulario.html')
 
 # FORMULARIO PARA ADMINISTRAR LOS INSUMOS    

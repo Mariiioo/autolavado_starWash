@@ -111,7 +111,7 @@ function valFormulatioUsuario() {
     }
     resp = validarUsuario();
     if (resp == false) {
-        alert("El Email es incorrecto");
+        alert("El Nombre de Usuario es incorrecto");
         return false;
     }
     if (resp == true) {

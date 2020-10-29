@@ -65,7 +65,7 @@ B) Tabla Registro.
 
 De igual manera se implementaron pruebas para comprobar el correto funcionamiento de la tabla registro, simulando datos para revisar el comportamiento del sistema con ellos.
 
-El funcionamiento de las pruebas, funciona de igualmanera que en el caso anterior donde se simulan datos, esperando que el sistema retorne un 1 en ambos casos si se realiza correctamente la funcionalidad solicitada.
+El funcionamiento de las pruebas, funciona de igual manera que en el caso anterior donde se simulan datos, esperando que el sistema retorne un 1 en ambos casos si se realiza correctamente la funcionalidad solicitada.
 
  Código
 

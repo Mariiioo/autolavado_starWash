@@ -96,22 +96,22 @@ function valFormulatioUsuario() {
     var resp;
     resp = validarNombre();
     if (resp == false) {
-        alert("El Nombre es incorrecto");
+        alert("El Nombre debe poseer mínimo 3 carácteres.");
         return false;
     }
     resp = validarApellido();
     if (resp == false) {
-        alert("El Apellido es incorrecto");
+        alert("El Apellido debe poseer mínimo 3 carácteres.");
         return false;
     }
     resp = validarEmail();
     if (resp == false) {
-        alert("El Email es incorrecto");
+        alert("El Email debe poseer mínimo 3 carácteres.");
         return false;
     }
     resp = validarUsuario();
     if (resp == false) {
-        alert("El Nombre de Usuario es incorrecto");
+        alert("El Nombre de Usuario edebe poseer mínimo 3 carácteres.");
         return false;
     }
     if (resp == true) {

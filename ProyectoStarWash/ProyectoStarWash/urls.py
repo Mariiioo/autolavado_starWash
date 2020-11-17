@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('StarWash.urls')), # si no se escribe nada cargara las rutas del proyecto
     path('',include('api.urls')), # si no se escribe nada cargara las rutas de api
+    path('', include('pwa.urls')), # incuye la apicacion pwa
 ]
 # Incluir en el Path el directorio "MEDIA" (el nombre y la ruta)
 if settings.DEBUG:

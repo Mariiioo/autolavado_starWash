@@ -8,11 +8,11 @@
     <title>StarWash {% block titulo %} {% endblock titulo %}</title>
 
     <link rel="stylesheet" href="{% static 'css/estilos.css' %}"> {% block estilos %} {% endblock estilos %}
-    <link rel="icon" href="{% static 'img/logo/Logo.png' %}"  />
-
+    <link rel="icon" href="{% static 'img/logo/Logo.png' %}" /> {% load pwa %} {% progressive_web_app_meta %}
 </head>
+
 <body>
-   <!-- CaBECERA -->
+    <!-- CaBECERA -->
     <header class="header">
 
         <div class="container logo-nav-container">
@@ -23,13 +23,13 @@
 
             </div>
             <div class="barraMenu">
-               
+
                 <div class="bienvenidaUsuario">
                     {% if user.is_authenticated %}
                     <p> Bienvenido {{user.first_name}} {{user.last_name}}</p>
                     {% endif%}
                 </div>
-                 <span class="menu-icon"><img src="{% static 'img/logo/icono-menu.png' %}" alt="" ></span>
+                <span class="menu-icon"><img src="{% static 'img/logo/icono-menu.png' %}" alt="" ></span>
                 <nav class="navigation">
                     <ul class="">
                         <li><a href="{% url 'INDEX' %}">Inicio</a></li>

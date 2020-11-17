@@ -1,101 +1,94 @@
-{% extends "web/base.html" %}
-{% load static %}
-{% block titulo %}
-- Home
-{% endblock titulo %}
-{% block contenido %}
-        <div class="slide-contenedor">
-            {% for item in imagSlider %}
-                <div class="miSlider fade">
-                <img src="{{item.imagen.url}}" alt="">
-                </div>
-            {% endfor %}
+{% extends "web/base.html" %} {% load static %} {% block titulo %} - Home {% endblock titulo %} {% block contenido %}
+<div class="slide-contenedor">
+    {% for item in imagSlider %}
+    <div class="miSlider fade">
+        <img src="{{item.imagen.url}}" alt="">
+    </div>
+    {% endfor %}
 
-            <div class="direcciones">
-                <a href="#" class="atras" onclick="avanzaSlide(-1)">&#10094;</a>
-                <a href="#" class="adelante" onclick="avanzaSlide(1)">&#10095;</a>
-            </div>
+    <div class="direcciones">
+        <a href="#" class="atras" onclick="avanzaSlide(-1)">&#10094;</a>
+        <a href="#" class="adelante" onclick="avanzaSlide(1)">&#10095;</a>
+    </div>
 
 
-            <div class="barras">
-                <span class="barra active" onclick="posicionSlide(1)"></span>
-            {% comment %} 
-                <span class="barra" onclick="posicionSlide(2)"></span>
-                <span class="barra" onclick="posicionSlide(3)"></span>
-                <span class="barra" onclick="posicionSlide(4)"></span>
-                <span class="barra" onclick="posicionSlide(5)"></span>
-                <span class="barra" onclick="posicionSlide(6)"></span>
-            {% endcomment %}
+    <div class="barras">
+        <span class="barra active" onclick="posicionSlide(1)"></span> {% comment %}
+        <span class="barra" onclick="posicionSlide(2)"></span>
+        <span class="barra" onclick="posicionSlide(3)"></span>
+        <span class="barra" onclick="posicionSlide(4)"></span>
+        <span class="barra" onclick="posicionSlide(5)"></span>
+        <span class="barra" onclick="posicionSlide(6)"></span> {% endcomment %}
 
-            </div> 
+    </div>
 
-        </div>
-        <div class="nuestosServicios">
-            <h1>Nuestros Servicios</h1>
-            <div id="seccionServicios">
+</div>
+<div class="nuestosServicios">
+    <h1>Nuestros Servicios</h1>
+    <div id="seccionServicios">
 
-                <div class="servicios s-interior">
-                    <h2> INTERIOR</h2>
-                    <img src="{% static 'img/servicios/interior.jpg' %}">
-                    <h3>Valor del servicio</h3>
-                    <h3>$4999</h3>
-                    <div class="especificaciones">
-                        <p>• Limpieza de tableros. </p>
-                        <p>• Limpieza de puertas y consolas centrales con paño de microfibra. </p>
-                        <p>• Limpieza de vidrios. </p>
-                        <p>• Limpieza de gomas.</p>
-                        <p>• Aspirado.</p>
-                        <p>• Soplado.</p>
-                    </div>
-                </div>
-                <div class="servicios s-exterior">
-                    <h2>EXTERIOR</h2>
-                    <img src="{% static 'img/servicios/exterior.jpg' %}">
-                    <h3>Valor del servicio</h3>
-                    <h3>$5999</h3>
-                    <div class="especificaciones">
-                        <p>• Lavado con hidrolavadora. </p>
-                        <p>• Limpieza de llantas. </p>
-                        <p>• Limpieza de vidrios. </p>
-                        <p>• Sócalos.</p>
-                        <p>• Neumaticos.</p>
-                        <p>• Plásticos exteriores.</p>
-                    </div>
-                </div>
-                <div class="servicios s-premim">
-                    <h2>PREMIUM</h2>
-                    <img src="{% static 'img/servicios/premium.jpg' %} ">
-                    <h3>Valor del servicio</h3>
-                    <h3>$10000</h3>
-                    <div class="especificaciones ">
-                        <p>• Limpieza de tableros. </p>
-                        <p>• Limpieza de puertas y consolas centrales con paño de microfibra. </p>
-                        <p>• Limpieza de vidrios. </p>
-                        <p>• Limpieza de gomas.</p>
-                        <p>• Aspirado.</p>
-                        <p>• Soplado.</p>
-                        <p>• Lavado con hidrolavadora. </p>
-                        <p>• Limpieza de llantas. </p>
-                        <p>• Limpieza de vidrios. </p>
-                        <p>• Sócalos.</p>
-                        <p>• Neumaticos.</p>
-                        <p>• Plásticos exteriores.</p>
-                    </div>
-                </div>
+        <div class="servicios s-interior">
+            <h2> INTERIOR</h2>
+            <img src="{% static 'img/servicios/interior.jpg' %}">
+            <h3>Valor del servicio</h3>
+            <h3>$4999</h3>
+            <div class="especificaciones">
+                <p>• Limpieza de tableros. </p>
+                <p>• Limpieza de puertas y consolas centrales con paño de microfibra. </p>
+                <p>• Limpieza de vidrios. </p>
+                <p>• Limpieza de gomas.</p>
+                <p>• Aspirado.</p>
+                <p>• Soplado.</p>
             </div>
         </div>
-        <div id="seccionClientes">
-            <h1>SECCIÓN CLIENTES FELICES</h1>
-            <div class="nuestrosClientes">
-                <div class="testimonios">
-                    <img src="{% static 'img/testimonios/testimonio1.jpg' %}" alt="">
-                </div>
-                <div class="testimonios">
-                    <img src="{% static 'img/testimonios/testimonio2.jpg' %}" alt="">
-                </div>
-                <div class="testimonios">
-                    <img src="{% static 'img/testimonios/testimonio3.jpg' %}" alt="">
-                </div>
+        <div class="servicios s-exterior">
+            <h2>EXTERIOR</h2>
+            <img src="{% static 'img/servicios/exterior.jpg' %}">
+            <h3>Valor del servicio</h3>
+            <h3>$5999</h3>
+            <div class="especificaciones">
+                <p>• Lavado con hidrolavadora. </p>
+                <p>• Limpieza de llantas. </p>
+                <p>• Limpieza de vidrios. </p>
+                <p>• Sócalos.</p>
+                <p>• Neumaticos.</p>
+                <p>• Plásticos exteriores.</p>
             </div>
         </div>
+        <div class="servicios s-premim">
+            <h2>PREMIUM</h2>
+            <img src="{% static 'img/servicios/premium.jpg' %} ">
+            <h3>Valor del servicio</h3>
+            <h3>$10000</h3>
+            <div class="especificaciones ">
+                <p>• Limpieza de tableros. </p>
+                <p>• Limpieza de puertas y consolas centrales con paño de microfibra. </p>
+                <p>• Limpieza de vidrios. </p>
+                <p>• Limpieza de gomas.</p>
+                <p>• Aspirado.</p>
+                <p>• Soplado.</p>
+                <p>• Lavado con hidrolavadora. </p>
+                <p>• Limpieza de llantas. </p>
+                <p>• Limpieza de vidrios. </p>
+                <p>• Sócalos.</p>
+                <p>• Neumaticos.</p>
+                <p>• Plásticos exteriores.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="seccionClientes">
+    <h1>SECCIÓN CLIENTES FELICES</h1>
+    <div class="nuestrosClientes">
+        <div class="testimonios">
+            <img src="{% static 'img/testimonios/testimonio1.jpg' %}" alt="">
+        </div>
+        <div class="testimonios">
+            <img src="{% static 'img/testimonios/testimonio2.jpg' %}" alt="">
+        </div>
+        <div class="testimonios">
+            <img src="{% static 'img/testimonios/testimonio3.jpg' %}" alt="">
+        </div>
+    </div>
+</div>
 {% endblock contenido %}

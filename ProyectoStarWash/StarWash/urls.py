@@ -15,4 +15,5 @@ urlpatterns = [
     path('eliminar_insumo/<id>/', eliminar_insumo, name="ELIM_INSUMO"),
     path('buscar/<id>/', buscar, name='BUSCAR'),
     path('modificar/', modificar, name='MODIFICAR'),
+    path('oauth/', include('social_django.urls', namespace='social')), # Incluye el paquete de social django para facebook
 ]

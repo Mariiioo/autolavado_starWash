@@ -1,9 +1,10 @@
 {% extends "web/base.html" %} {% load static %} {% block contenido %}
 <h1>Login de Acceso</h1>
 <div id="section">
+    <tr><a href="{% url 'social:begin' 'facebook' %}">Login con Facebook</a></tr>
     <form action="" method="post" class="forma">
         {% csrf_token %}
-        
+
         <!--table CREA LA SECCION PARA LA TABLA CON LOS CAMPOS REQUERIDOS-->
         <table>
             <h1 class="tituloFormulario">Ingresa tu cuenta</h1>

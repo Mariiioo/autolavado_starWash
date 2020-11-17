@@ -27,6 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# VARIABLES PARA AUTENTIFICAR POR FACEBOOK
+SOCIAL_AUTH_FACEBOOK_KEY = '408499583664321' 
+SOCIAL_AUTH_FACEBOOK_SECRET = '508248b80c9e75853ea84b92ea8a9174'
 
 # Application definition
 
@@ -39,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'StarWash.apps.StarwashConfig',  #---- > incluimos la aplicacion dentro de la solucion
     'rest_framework', # --- > indica que se trabajara con la libreria de servicios web de rest framework 
-    'api.apps.ApiConfig' # --- > incluye la aplicacion API
+    'api.apps.ApiConfig', # --- > incluye la aplicacion API
+    'social_django', # ---> manejar redes sociales
 ]
 
 MIDDLEWARE = [
@@ -50,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware', # libreria para manejo social de django
 ]
 
 ROOT_URLCONF = 'ProyectoStarWash.urls'
@@ -65,6 +70,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends', # Desarrollo progamatico interno
+                'social_django.context_processors.login_redirect', # Redireccion
+
             ],
         },
     },
@@ -72,6 +80,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ProyectoStarWash.wsgi.application'
 
+# VARIABLES DE AUTENTIFICACION
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.facebook.FacebookOAuth2', # Logea sobre facebook
+    'django.contrib.auth.backends.ModelBackend', # Utiliza el modelo de las migraciones
+)
+
+LOGIN_REDIRECT_URL = '/' # Redigige al home una vez haya logeado
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases

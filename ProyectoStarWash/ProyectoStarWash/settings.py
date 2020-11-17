@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'StarWash.apps.StarwashConfig'  #---- > incluimos la aplicacion dentro de la solucion
+    'StarWash.apps.StarwashConfig',  #---- > incluimos la aplicacion dentro de la solucion
+    'rest_framework', # --- > indica que se trabajara con la libreria de servicios web de rest framework 
+    'api.apps.ApiConfig' # --- > incluye la aplicacion API
 ]
 
 MIDDLEWARE = [

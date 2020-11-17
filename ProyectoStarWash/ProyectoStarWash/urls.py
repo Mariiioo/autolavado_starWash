@@ -22,7 +22,8 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('StarWash.urls'))
+    path('',include('StarWash.urls')), # si no se escribe nada cargara las rutas del proyecto
+    path('',include('api.urls')), # si no se escribe nada cargara las rutas de api
 ]
 # Incluir en el Path el directorio "MEDIA" (el nombre y la ruta)
 if settings.DEBUG:

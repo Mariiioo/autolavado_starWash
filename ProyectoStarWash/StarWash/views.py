@@ -9,6 +9,10 @@ from django.contrib.auth import authenticate, logout, login as login_autent
 # agregar un decorador que evite el ingreso a unas paginas (requiere estar logeado) permission_required (debe tener un permiso)
 from django.contrib.auth.decorators import login_required, permission_required
 
+# importar peticiones HTTP
+import requests
+
+
 # Create your views here.
 def logout_vista(request):
     logout(request)
@@ -27,28 +31,6 @@ def login(request):
         else:
             return render(request,'web/login.html', {'msg':'El usuario NO existe'}) 
     return render(request, 'web/login.html')
-    
- ## FORMULARIO PARA AGREGAR INSUMOS   
-@login_required(login_url='/login/') #pide que este logeado
-@permission_required('StarWash.add_insumo', login_url='/login/') #pide un permiso de agregar insumos
-def insumos(request):
-    if request.POST:
-        nombreIns = request.POST.get("NombreInsumo")
-        precioIns = request.POST.get("Precio")
-        descIns = request.POST.get("Descripcion")
-        stockIns = request.POST.get("Stock")
-        
-        ins = Insumo(
-            nombre = nombreIns,
-            precio = precioIns,
-            descripcion = descIns,
-            stock = stockIns
-        )
-
-        ins.save()
-        return render(request,'web/reg-insumo.html', {'mensaje':'Se registro el Insumo'})
-    return render(request,'web/reg-insumo.html')
-
 
 ## FORMULARIO REGISTRO
 def formulario(request):
@@ -94,8 +76,10 @@ def formulario(request):
 @login_required(login_url='/login/') #pide que este logeado
 @permission_required('StarWash.view_insumo', login_url='/login/') #pide un permiso para ver insumos
 def adminInsumo(request):
-    #Lista de insumos
-    lista_insumos = Insumo.objects.all()
+    #lista_insumos = Insumo.objects.all()
+    # Se recupera todos los insumos en formato json
+    response = requests.get("http://127.0.0.1:8000/api/insumos/")
+    lista_insumos = response.json()
     #Si envia el metodo POST
     if request.POST:
         accion = request.POST.get("accion")
@@ -147,14 +131,44 @@ def adminInsumo(request):
 
     return render(request,'web/admin_insumos.html',{'lista_insumos':lista_insumos})
 
+### AGREGAR INSUMOS   
+@login_required(login_url='/login/') #pide que este logeado
+@permission_required('StarWash.add_insumo', login_url='/login/') #pide un permiso de agregar insumos
+def insumos(request):
+    if request.POST:
+        nombreIns = request.POST.get("NombreInsumo")
+        precioIns = request.POST.get("Precio")
+        descIns = request.POST.get("Descripcion")
+        stockIns = request.POST.get("Stock")
+        
+        '''ins = Insumo(
+            nombre = nombreIns,
+            precio = precioIns,
+            descripcion = descIns,
+            stock = stockIns
+        )
+        ins.save()'''
 
-# ELIMINA EL INSUMO
+        # GUARDAR UTILIZANDO LA API
+        datos_insumo = {
+            "nombre" : nombreIns,
+            "precio" : precioIns,
+            "descripcion" : descIns,
+            "stock" : stockIns
+        }
+        requests.post("http://127.0.0.1:8000/api/insumos/", data=datos_insumo)
+        return render(request,'web/reg-insumo.html', {'mensaje':'Se registro el Insumo'})
+    return render(request,'web/reg-insumo.html')
+
+### ELIMINA EL INSUMO
 @login_required(login_url='/login/') #pide que este logeado
 @permission_required('StarWash.view_insumo', login_url='/login/') #pide un permiso para ver insumos
 @permission_required('StarWash.delete_insumo', login_url='/login/') #pide un permiso para ver insumos
 def eliminar_insumo(request, id):
-    #Lista de insumos
-    lista_insumos = Insumo.objects.all()
+    #lista_insumos = Insumo.objects.all()
+    # Se recupera todos los insumos en formato json
+    response = requests.get("http://127.0.0.1:8000/api/insumos/")
+    lista_insumos = response.json()
     try:
         ins = Insumo.objects.get(nombre=id)
         ins.delete()
@@ -163,7 +177,7 @@ def eliminar_insumo(request, id):
         mensaje = "NO Elimino Insumo"
     return render(request,'web/admin_insumos.html',{'mensaje':mensaje,'lista_insumos':lista_insumos})
         
-# BUSCA EL INSUMO
+### BUSCA EL INSUMO
 @login_required(login_url='/login/') #pide que este logeado
 @permission_required('StarWash.view_insumo', login_url='/login/') #pide un permiso para ver insumos
 def buscar(request,id):
@@ -172,10 +186,13 @@ def buscar(request,id):
         return render(request,'web/formulario_insumo_mod.html',{'insumo':insumo})
     except :
         msg = 'No existe el Insumo'
-    lista_insumos = Insumo.objects.all()
+    #lista_insumos = Insumo.objects.all()
+    # Se recupera todos los insumos en formato json
+    response = requests.get("http://127.0.0.1:8000/api/insumos/")
+    lista_insumos = response.json()
     return render(request,'web/admin_insumos.html',{'lista_insumos':lista_insumos,'mensaje':msg})
 
-# MODIFICAR EL INSUMO
+### MODIFICAR EL INSUMO
 @login_required(login_url='/login/') #pide que este logeado
 @permission_required('StarWash.view_insumo', login_url='/login/') #pide un permiso para ver insumos
 @permission_required('StarWash.change_insumo', login_url='/login/') #pide un permiso para ver insumos
@@ -195,10 +212,11 @@ def modificar(request):
             msg = 'Se modifico el Insumo'
         except:
             msg = 'No se modifico'
-    lista_insumos = Insumo.objects.all()
+    #lista_insumos = Insumo.objects.all()
+    # Se recupera todos los insumos en formato json
+    response = requests.get("http://127.0.0.1:8000/api/insumos/")
+    lista_insumos = response.json()
     return render(request,'web/admin_insumos.html',{'lista_insumos':lista_insumos,'mensaje':msg})
-
-
 
 def index(request):
     slider = Slider.objects.all()
@@ -207,7 +225,6 @@ def index(request):
 def conocenos(request):
     myv = MisionVision.objects.all()
     return render(request,'web/conocenos.html',{'myv':myv})
-
 
 def ubicacion(request):
     return render(request,'web/ubicacion.html')

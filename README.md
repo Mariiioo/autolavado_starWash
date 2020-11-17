@@ -30,18 +30,6 @@ Código
             valor = 0 
         self.assertEquals(valor,1)
 
-
-    def test_eliminar(self):
-        valor = 1
-        try:
-            nombreInsumo = "Limpia Vidrios"
-            ins = Insumo.objects.get(nombre=nombreInsumo)
-            ins.delete()
-            valor=1
-        except:
-            valor=0       
-        self.assertEquals(valor,1)
-
     def test_modificar(self):
         valor= 1
         nombreIns = "Limpia Vidrios"
@@ -60,6 +48,17 @@ Código
         except:
             valor= 0
         self.assertEquals(valor,1)
+        
+    def test_eliminar(self):
+        valor = 1
+        try:
+            nombreInsumo = "Limpia Vidrios"
+            ins = Insumo.objects.get(nombre=nombreInsumo)
+            ins.delete()
+            valor=1
+        except:
+            valor=0       
+        self.assertEquals(valor,1)        
 
 B) Tabla Registro.
 

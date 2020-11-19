@@ -3,7 +3,12 @@ from rest_framework import generics # Importa las vistas generias, que son templ
 from StarWash.models import Insumo # Importa la tabla insumos
 from .serializers import InsumoSerializer # Importa la clase serializer creada en la ap API 
 
-# Creacion de la vista Insumos: NORMA DEBE TENER ViewSet(una vista generia.ListApiView)
+# Creacion de la vista Insumos: NORMA DEBE TENER ViewSet(una vista generia.ListApiView)}
+# MUESTRA TODOS LOS DATOS DE LOS INSUMOS
+class ListaInsumosViewSet(generics.ListAPIView):
+    queryset = Insumo.objects.all() # Ver todos los insumos
+    serializer_class = InsumoSerializer
+
 # OPCION DE CREAR Y LISTA EN UNA VISTA GENERICA LOS INSUMOS
 class InsumosViewSet(generics.ListCreateAPIView):
     queryset = Insumo.objects.all() # Ver todos los datos

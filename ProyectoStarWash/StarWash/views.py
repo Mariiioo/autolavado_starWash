@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Galeria, Insumo ,Slider , MisionVision
+from .models import Galeria, Insumo ,Slider , MisionVision, Contacto
 # IMPORTAR LA TABLA DE USUARIOS DEL admin de Django
 from django.contrib.auth.models import User
 
@@ -46,10 +46,6 @@ def guardar_token(request):
     except:
         return HttpResponseBadRequest(json.dumps({'mensaje','no pudo almacenar el token'}))
 # ------------------------------------------------------------------------------------
-
-
-
-
 
 
 # Create your views here.
@@ -196,7 +192,7 @@ def insumos(request):
             "stock" : stockIns
         }
         requests.post("http://127.0.0.1:8000/api/insumos/", data=datos_insumo)
-         # envio el token
+        # envio el token
         dispositivos = FCMDevice.objects.filter(active=True)
         dispositivos.send_message(
             title='Nuevo insumo',
@@ -278,3 +274,31 @@ def ubicacion(request):
 def galeria(request):
     gal = Galeria.objects.all()
     return render(request,'web/galeria.html',{'imagenes_galeria':gal})
+
+def contacto(request):
+    if request.POST:
+        nombreCont = request.POST.get("Nombre")
+        apellidoCont = request.POST.get("Apellido")
+        asuntoCont = request.POST.get("Asunto")
+        tipoCont = request.POST.get("TipoContacto")
+        mensajeCont = request.POST.get("Mensaje")
+
+        cont = Contacto()
+        cont.nombre=nombreCont
+        cont.apellido=apellidoCont
+        cont.asunto=asuntoCont
+        cont.tipo=tipoCont
+        cont.mensaje=mensajeCont
+        cont.save()
+        # envio el token
+        dispositivos = FCMDevice.objects.filter(active=True)
+        dispositivos.send_message(
+            title='Nuevo Solicitud De Contacto',
+            body='Tipo de Solicitud: '+tipoCont,
+            icon='/static/img/logo/Logo.png'
+        )
+        return render(request,'web/contacto.html',{'msg':'Se ha enviado su formulario.'})    
+    return render(request,'web/contacto.html')
+
+
+ 

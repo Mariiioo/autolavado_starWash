@@ -1,11 +1,12 @@
 from django.contrib import admin
 from django.urls import path,include
-from .views import index,galeria,formulario,conocenos,ubicacion, insumos, login, logout_vista, adminInsumo, eliminar_insumo, buscar, modificar,guardar_token
+from .views import index,galeria,formulario,contacto,conocenos,ubicacion, insumos, login, logout_vista, adminInsumo, eliminar_insumo, buscar, modificar,guardar_token
 
 urlpatterns = [
     path('',index,name="INDEX"),
     path('galeria/',galeria,name="GALERIA"),
     path('formulario/',formulario,name="FORMULARIO"),
+    path('contacto/',contacto,name='CONTACTO'),
     path('conocenos/',conocenos,name="CONOCENOS"),
     path('ubicacion/',ubicacion,name="UBICACION"),
     path('registro_insumos/', insumos, name='INSUMOS'),

@@ -111,7 +111,7 @@ function valFormulatioUsuario() {
     }
     resp = validarUsuario();
     if (resp == false) {
-        alert("El Nombre de Usuario edebe poseer mínimo 3 carácteres.");
+        alert("El Nombre de usuario debe poseer mínimo 3 carácteres.");
         return false;
     }
     if (resp == true) {

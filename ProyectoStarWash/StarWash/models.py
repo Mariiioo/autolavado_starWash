@@ -36,3 +36,12 @@ class MisionVision(models.Model):
     def __str__(self):
         return self.nombre    
 
+class Contacto (models.Model):
+    nombre = models.CharField(max_length=50, primary_key=True)
+    apellido = models.CharField(max_length=50)
+    asunto = models.CharField(max_length=50)
+    tipo = models.CharField(max_length=50,null=True)
+    mensaje = models.TextField()
+
+    def __str__(self):
+        return self.nombre

@@ -69,14 +69,14 @@
             })
 
         //// modelo de notificacion /////////////////////////////////
-        messaging.onMessage(function(payload) {
-            let titulo = 'Titulo de la notificacion'
-            let opciones = {
-                body: 'Contenido de la notificacion',
-                icon: '/static/img/logo/Logo.png'
-            }
-            let mensaje = new Notification(titulo, opciones);
-        })
+      //    messaging.onMessage(function(payload) {
+        //    let titulo = 'Titulo de la notificacion'
+          //  let opciones = {
+            //    body: 'Contenido de la notificacion',
+              //  icon: '/static/img/logo/Logo.png'
+           // }
+           // let mensaje = new Notification(titulo, opciones);
+       // })
 
         ///////////////////////////////////////////////////////////
     </script>
@@ -108,6 +108,7 @@
                         <li><a href="{% url 'CONOCENOS' %}">Conócenos</a></li>
                         <li><a href="{% url 'UBICACION' %}">Ubicación</a></li>
                         <li><a href="{% url 'GALERIA' %}">Galería</a></li>
+                        <li><a href="{% url 'CONTACTO' %}">Contacto</a></li>
                         {% if user.is_authenticated %} {% comment %}
                         <li><a href="{% url 'ADMIN_INSUMO' %}">CRUD Insumo</a></li> {% endcomment %}
                         <li><a href="{% url 'INSUMOS' %}">Insumos</a></li>

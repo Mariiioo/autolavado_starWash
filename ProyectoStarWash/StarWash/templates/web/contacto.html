@@ -1,0 +1,65 @@
+{% extends "web/base.html" %} {% load static %} {% block contenido %}
+<div id="section">
+    <h1>FORMULARIO DE CONTACTO</h1>
+    <form action="{% url 'CONTACTO' %}" method="POST" class="forma" onsubmit="return valFormulatioContacto()">
+        {% csrf_token %}
+        <!--table CREA LA SECCION PARA LA TABLA CON LOS CAMPOS REQUERIDOS-->
+        <table>
+            <h1 class="tituloFormulario">Complete el formulario</h1>
+            <tr>
+                <!--DEBE SER EBTRE 3 Y 50 CARACTERES-->
+                <td>
+                    <p class="lbl"> NOMBRE </p>
+                </td>
+                <td class="caja"><input type="text" id="txtNombre" name="Nombre" class="field" minlength="3" maxlength="50" required placeholder="Ej: Miguel"> </td>
+            </tr>
+            <tr>
+                <!--DEBE SER EBTRE 3 Y 50 CARACTERES-->
+                <td>
+                    <p class="lbl"> APELLIDO </p>
+                </td>
+                <td class="caja"><input type="text" id="txtApellido" name="Apellido" class="field" minlength="3" maxlength="50" required placeholder="Ej: Ramirez"></td>
+            </tr>
+            <tr>
+                <!--DEBE SER UN AUNTO ENTRE 8 Y 50 CARACTERES-->
+                <td>
+                    <p class="lbl"> ASUNTO </p>
+                </td>
+                <td class="caja"><input type="" id="txtAsunto" name="Asunto" class="field" minlength="8" maxlength="50" required placeholder="Ingrese un título como asunto"></td>
+            </tr>
+            <tr>
+                <!--DEBE SER UN COMBOBOX-->
+                <td>
+                    <p class="lbl"> TIPO DE CONTACTO </p>
+                </td>
+                <td class="caja" > 
+                <select name="TipoContacto" >
+                <option>Solicitud</option>
+                <option>Reclamo</option>
+                <option>Sugerencia</option>
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <!--Mensaje debe tener MINIMO 10, MAXIMO 200 -->
+                <td>
+                    <p class="lbl">  MENSAJE </p>
+                </td>
+                <td class="caja"><textarea name="Mensaje" rows="10" cols="40" id="txtMensaje" class="field" minlength="10" maxlength="200" required placeholder="Ingrese sus comentarios"></textarea></td>
+                
+            </tr>
+
+        </table>
+        <div class="botones">
+            <input class="boton" type="submit" value="Enviar">
+            <input class="boton" type="reset" value="Limpiar">
+        </div>
+
+    </form>
+    <div style="text-align: center;">
+        <h2>{{msg}}</h2>
+    </div>
+</div>
+{% endblock contenido %} {% block titulo %} - Registro {% endblock titulo %} {% block js %}
+<script src="{% static 'js/validacionesFContacto.js' %}"></script>
+{% endblock js %}

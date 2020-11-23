@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Galeria, Insumo ,Slider ,MisionVision
+from .models import Galeria, Insumo ,Slider ,MisionVision,Contacto
 
 # Register your models here.
 
@@ -26,11 +26,16 @@ class MisionVisionAdmin(admin.ModelAdmin):
     search_fields= ['nombre','mision','vision']
     list_per_page=10
 
+class ContactoAdmin(admin.ModelAdmin):
+    list_display= ['nombre','apellido','asunto','tipo','mensaje']  # Campos que deseo ver
+    search_fields= ['nombre','tipo','asunto']
+    list_per_page=10
 
 # Register para revisarlos dentro del admin de Django
 admin.site.register(Galeria, GaleriaAdmin) 
 admin.site.register(Insumo, InsumoAdmin)
 admin.site.register(Slider,SliderAdmin)
 admin.site.register(MisionVision, MisionVisionAdmin)
+admin.site.register(Contacto,ContactoAdmin)
 
 

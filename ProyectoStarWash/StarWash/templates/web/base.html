@@ -10,6 +10,66 @@
     <link rel="stylesheet" href="{% static 'css/estilos.css' %}"> {% block estilos %} {% endblock estilos %}
     <link rel="icon" href="{% static 'img/logo/Logo.png' %}" /> {% load pwa %} {% progressive_web_app_meta %}
 
+    <!-- NOTIFICACIONES PUSH -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-messaging.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDjUvvFPSt19SRasTx8SL1Co3U03BUSfIE",
+            authDomain: "starwash-6cc3c.firebaseapp.com",
+            databaseURL: "https://starwash-6cc3c.firebaseio.com",
+            projectId: "starwash-6cc3c",
+            storageBucket: "starwash-6cc3c.appspot.com",
+            messagingSenderId: "896348119044",
+            appId: "1:896348119044:web:2aa3abe7ebb45065839551"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        /////////////////////////////////////////////////////////////
+        // INDICA QUE SE OCUPA SERVICEWORKER
+        let messaging = firebase.messaging();
+
+        navigator.serviceWorker
+            .register('serviceworker.js')
+            .then(function(register) {
+                messaging.useServiceWorker(register);
+                // para pedir permiso
+                messaging.requestPermission()
+                    .then(function() {
+                        console.log("Usuario acepta recibir notificaciones")
+                            // crear un token 
+                        return messaging.getToken();
+                    })
+                    .then(function(token) {
+                        // podemos ver el token de seguridad
+                        console.log(token)
+                    })
+                    .catch(function(e) {
+                        console.log("Usuario no desea recibir notificaciones")
+                    })
+            })
+
+        //// modelo de notificacion /////////////////////////////////
+        messaging.onMessage(function(payload) {
+            let titulo = 'Titulo de la notificacion'
+            let opciones = {
+                body: 'Contenido de la notificacion',
+                icon: '/static/img/logo/Logo.png'
+            }
+            let mensaje = new Notification(titulo, opciones);
+        })
+
+        ///////////////////////////////////////////////////////////
+    </script>
+
 </head>
 
 <body>

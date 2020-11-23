@@ -35,3 +35,34 @@ self.addEventListener('fetch', function(event) {
         })
     );
 });
+
+/////////////////////////////////////////////////////
+// FIREBASE
+importScripts('https://www.gstatic.com/firebasejs/3.9.0/firebase-app.js');
+importScripts('https://www.gstatic.com/firebasejs/3.9.0/firebase-messaging.js');
+
+var firebaseConfig = {
+    apiKey: "AIzaSyDjUvvFPSt19SRasTx8SL1Co3U03BUSfIE",
+    authDomain: "starwash-6cc3c.firebaseapp.com",
+    databaseURL: "https://starwash-6cc3c.firebaseio.com",
+    projectId: "starwash-6cc3c",
+    storageBucket: "starwash-6cc3c.appspot.com",
+    messagingSenderId: "896348119044",
+    appId: "1:896348119044:web:2aa3abe7ebb45065839551"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+let messaging = firebase.messaging();
+
+messaging.setBackgroundMessageHandler(function(payload) {
+    let titulo = 'Titulo de la Notificacion'
+    let opciones = {
+        body: 'Cuerpo del mensaje',
+        icon: '/static/img/logo/Logo.png'
+    }
+    self.registration.showNotification(titulo, opciones)
+})
+
+///////////////////////////////////////////////////////

@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'api.apps.ApiConfig', # --- > incluye la aplicacion API
     'social_django', # ---> manejar redes sociales
     'pwa', # ---> aplicaciones progresivas Service Worked
+    'fcm_django',  # --> aplicacion para utilizar la fmvDevice y guardar los tokens
+
 ]
 
 MIDDLEWARE = [
@@ -129,6 +131,22 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
+
+#Configuracion FCMDevice
+FCM_DJANGO_SETTINGS = {
+         # default: _('FCM Django')
+        "APP_VERBOSE_NAME": "starwash-6cc3c",
+         # Your firebase API KEY
+        "FCM_SERVER_KEY": "AAAA0LKC4AQ:APA91bHg2lVJOWyYewtw42jO6aMZpaXjSyP06U_pkoLaUnMR2fjQXbeVNHcNgJ60ZdU1mMYIa3b2vqZHJnnBy91hyoWct19mMetgCqQj6NZFDSaaCS90YR5ndtyydDg3VEn7f6j7aXeZ",
+         # true if you want to have only one active device per registered user at a time
+         # default: False
+        "ONE_DEVICE_PER_USER": False,
+         # devices to which notifications cannot be sent,
+         # are deleted upon receiving error response from FCM
+         # default: False
+        "DELETE_INACTIVE_DEVICES": False,
+}
 
 # VARIABLES DE AUTENTIFICACION
 AUTHENTICATION_BACKENDS = (

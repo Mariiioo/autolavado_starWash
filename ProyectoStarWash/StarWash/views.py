@@ -12,6 +12,45 @@ from django.contrib.auth.decorators import login_required, permission_required
 # importar peticiones HTTP
 import requests
 
+# ------------------------------------------------------------------------------------
+# incorporar las librerias necesarias para trabajar con la carga de adtos
+from django.views.decorators.http import require_http_methods
+from django.views.decorators.csrf import csrf_exempt
+
+from django.http import HttpResponse, HttpResponseBadRequest
+from django.core import serializers
+import json
+from fcm_django.models import FCMDevice
+# creacion de la vista para el desarrollo del metodo
+
+@csrf_exempt
+@require_http_methods(['POST'])
+def guardar_token(request):
+    body = request.body.decode('utf-8')
+    datos_body = json.loads(body)
+    token = datos_body['token']
+    # preguntar si el token existe
+    existe = FCMDevice.objects.filter(registration_id=token,active=True)
+    if len(existe)>0:
+        return HttpResponseBadRequest(json.dumps({'mensaje','el token existe'}))
+    dispositivo = FCMDevice()
+    dispositivo.registration_id = token
+    dispositivo.active = True
+    # solo si el usuario esta registrado antes
+    if request.user.is_authenticated:
+        dispositivo.user = request.user
+    # grabar el dipositivo
+    try:
+        dispositivo.save()
+        return HttpResponse(json.dumps({'mensaje','dispositivo almacenado'}))
+    except:
+        return HttpResponseBadRequest(json.dumps({'mensaje','no pudo almacenar el token'}))
+# ------------------------------------------------------------------------------------
+
+
+
+
+
 
 # Create your views here.
 def logout_vista(request):
@@ -157,6 +196,13 @@ def insumos(request):
             "stock" : stockIns
         }
         requests.post("http://127.0.0.1:8000/api/insumos/", data=datos_insumo)
+         # envio el token
+        dispositivos = FCMDevice.objects.filter(active=True)
+        dispositivos.send_message(
+            title='Nuevo insumo',
+            body='tenemos un nuevo insumo '+nombreIns,
+            icon='/static/img/logo/Logo.png'
+        )
         return render(request,'web/reg-insumo.html', {'mensaje':'Se registro el Insumo'})
     return render(request,'web/reg-insumo.html')
 

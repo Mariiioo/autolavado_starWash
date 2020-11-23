@@ -51,6 +51,17 @@
                     .then(function(token) {
                         // podemos ver el token de seguridad
                         console.log(token)
+                         /////////////// enviar el token a un metodo en la view /////////////////////
+                        fetch('guardar-token/',{
+                            method:'post',
+                            headers:{
+                                'Content-Type':'application/json',
+                                'Accept':'application/json'
+                            },
+                            body:JSON.stringify({
+                                'token':token
+                            })
+                        })
                     })
                     .catch(function(e) {
                         console.log("Usuario no desea recibir notificaciones")

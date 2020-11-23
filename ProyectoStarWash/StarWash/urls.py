@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path,include
-from .views import index,galeria,formulario,conocenos,ubicacion, insumos, login, logout_vista, adminInsumo, eliminar_insumo, buscar, modificar
+from .views import index,galeria,formulario,conocenos,ubicacion, insumos, login, logout_vista, adminInsumo, eliminar_insumo, buscar, modificar,guardar_token
 
 urlpatterns = [
     path('',index,name="INDEX"),
@@ -16,4 +16,5 @@ urlpatterns = [
     path('buscar/<id>/', buscar, name='BUSCAR'),
     path('modificar/', modificar, name='MODIFICAR'),
     path('oauth/', include('social_django.urls', namespace='social')), # Incluye el paquete de social django para facebook
+    path('guardar-token/',guardar_token,name='guardar-token'),
 ]

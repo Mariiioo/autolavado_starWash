@@ -6,10 +6,10 @@ var urlsToCache = [
     '/galeria/', // CARGARA PAGINA GALERIA
     '/conocenos/', // CARGARA PAGINA MISION Y VISION
     '/static/css/estilos.css', // ESTILOS
-    '/static/css/ligthbox.min.css', // ESTILOS
+    // '/static/css/ligthbox.min.css', // ESTILOS
     '/static/img/logo/Logo.png', //IMAGENES
-    '/static/img/IconosGaleria/next.png', //ICONOS DE GALERIA
-    '/static/img/IconosGaleria/prev.png', //ICONOS DE GALERIA
+    // '/static/img/IconosGaleria/next.png', //ICONOS DE GALERIA
+    // '/static/img/IconosGaleria/prev.png', //ICONOS DE GALERIA
 ];
 
 // LISTENERS

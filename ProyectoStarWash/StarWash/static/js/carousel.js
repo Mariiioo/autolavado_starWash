@@ -1,4 +1,4 @@
-let indice = 1;
+indice = 1;
 muestraSlides(indice);
 
 function avanzaSlide(n) {

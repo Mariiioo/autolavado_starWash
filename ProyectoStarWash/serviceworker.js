@@ -27,33 +27,11 @@ self.addEventListener('install', function(event) {
 
 self.addEventListener('fetch', function(event) {
     event.respondWith(
-        // Recupera los elementos
         caches.match(event.request).then(function(response) {
-
             return fetch(event.request)
-                .catch(function(pyt) {
+                .catch(function(rsp) {
                     return response;
                 });
-
         })
     );
 });
-
-
-//solo para cachear TODO reemplazar por esta versión del Fetch
-// self.addEventListener('fetch', function(event) {
-//     event.respondWith(
-
-//         fetch(event.request)
-//         .then((result) => {
-//             return caches.open(CACHE_NAME)
-//                 .then(function(c) {
-//                     c.put(event.request.url, result.clone())
-//                     return result;
-//                 })
-//         })
-//         .catch(function(e) {
-//             return caches.match(event.request)
-//         })
-//     );
-// });

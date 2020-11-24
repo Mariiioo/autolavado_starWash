@@ -195,8 +195,8 @@ def insumos(request):
         # envio el token
         dispositivos = FCMDevice.objects.filter(active=True)
         dispositivos.send_message(
-            title='Nuevo insumo',
-            body='tenemos un nuevo insumo '+nombreIns,
+            title='Nuevo Insumo Agregado',
+            body='Tenemos un nuevo insumo: ' + nombreIns,
             icon='/static/img/logo/Logo.png'
         )
         return render(request,'web/reg-insumo.html', {'mensaje':'Se registro el Insumo'})
@@ -277,7 +277,7 @@ def galeria(request):
 
 def contacto(request):
     if request.POST:
-        nombreCont = request.POST.get("Nombre")
+        nombreCont = reqsuest.POST.get("Nombre")
         apellidoCont = request.POST.get("Apellido")
         asuntoCont = request.POST.get("Asunto")
         tipoCont = request.POST.get("TipoContacto")
@@ -290,6 +290,7 @@ def contacto(request):
         cont.tipo=tipoCont
         cont.mensaje=mensajeCont
         cont.save()
+
         # envio el token
         dispositivos = FCMDevice.objects.filter(active=True)
         dispositivos.send_message(

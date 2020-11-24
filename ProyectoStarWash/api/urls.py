@@ -12,4 +12,5 @@ urlpatterns = [
     url(r'^api/insumos/$', views.InsumosViewSet.as_view()), # lleva a la api donde se ve y guarda
     url(r'^api/insumos_nombre/(?P<nombre>.+)/$', views.InsumoFiltroNombreViewSet.as_view()), # solo mostrara el insumo que se ingrese
     url(r'^api/insumos_precio/(?P<precio>[0-9]+)/$', views.InsumoFiltroPrecioViewSet.as_view()), # solo mostraran los precios
+    url(r'^api/lista_contactos/$',views.ListaContactoViewSet.as_view()), #Muestra todos los contactos
 ]

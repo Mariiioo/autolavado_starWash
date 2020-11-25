@@ -9,11 +9,6 @@ class ListaInsumosViewSet(generics.ListAPIView):
     queryset = Insumo.objects.all() # Ver todos los insumos
     serializer_class = InsumoSerializer
 
-# MUESTRA TODOS LOS DATOS DE LOS CONTACTO
-class ListaContactoViewSet(generics.ListAPIView):
-    queryset = Contacto.objects.all() # Ver todos los contactos
-    serializer_class = ContactoSerializer
-
 # OPCION DE CREAR Y LISTA EN UNA VISTA GENERICA LOS INSUMOS
 class InsumosViewSet(generics.ListCreateAPIView):
     queryset = Insumo.objects.all() # Ver todos los datos
@@ -33,4 +28,12 @@ class InsumoFiltroPrecioViewSet(generics.ListAPIView):
         precioUrl = self.kwargs['precio']
         return Insumo.objects.filter(precio = precioUrl)
 
- 
+ # MUESTRA TODOS LOS DATOS DE LOS CONTACTO
+class ListaContactoViewSet(generics.ListAPIView):
+    queryset = Contacto.objects.all() # Ver todos los contactos
+    serializer_class = ContactoSerializer
+
+# OPCION DE CREAR Y LISTA EN UNA VISTA GENERICA LOS CONTACTOS
+class ContactosViewSet(generics.ListCreateAPIView):
+    queryset = Contacto.objects.all() # Ver todos los datos
+    serializer_class = ContactoSerializer # Seran serializados a la clase creada

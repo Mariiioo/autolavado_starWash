@@ -32,8 +32,8 @@
                 <td>
                     <p class="lbl"> TIPO DE CONTACTO </p>
                 </td>
-                <td class="caja" > 
-                <select name="TipoContacto" >
+                <td class="caja">
+                    <select name="TipoContacto">
                 <option>Solicitud</option>
                 <option>Reclamo</option>
                 <option>Sugerencia</option>
@@ -43,10 +43,10 @@
             <tr>
                 <!--Mensaje debe tener MINIMO 10, MAXIMO 200 -->
                 <td>
-                    <p class="lbl">  MENSAJE </p>
+                    <p class="lbl"> MENSAJE </p>
                 </td>
                 <td class="caja"><textarea name="Mensaje" rows="10" cols="40" id="txtMensaje" class="field" minlength="10" maxlength="200" required placeholder="Ingrese sus comentarios"></textarea></td>
-                
+
             </tr>
 
         </table>
@@ -60,6 +60,6 @@
         <h2>{{msg}}</h2>
     </div>
 </div>
-{% endblock contenido %} {% block titulo %} - Registro {% endblock titulo %} {% block js %}
+{% endblock contenido %} {% block titulo %} - Contacto {% endblock titulo %} {% block js %}
 <script src="{% static 'js/validacionesFContacto.js' %}"></script>
 {% endblock js %}

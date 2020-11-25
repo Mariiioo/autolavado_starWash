@@ -277,7 +277,7 @@ def galeria(request):
 
 def contacto(request):
     if request.POST:
-        nombreCont = reqsuest.POST.get("Nombre")
+        nombreCont = request.POST.get("Nombre")
         apellidoCont = request.POST.get("Apellido")
         asuntoCont = request.POST.get("Asunto")
         tipoCont = request.POST.get("TipoContacto")
